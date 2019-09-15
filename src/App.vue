@@ -1,23 +1,50 @@
 <template>
   <div>
-    <img src="./assets/logo.png" height="200" width="200"/>
-    <!--  3.使用组件标签  -->
-    <HelloWorld/>
+    <header class="site-header jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1>请发表对Vue的评论</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+    <!--   组件间传递函数   -->
+      <Add :addComment="addComment"/>
+
+      <!--   组件间传递参数，给list组件传递 comments 参数  -->
+      <List :comments="comments"/>
+    </div>
   </div>
 </template>
 
 <script>
-  // 1. 引入组件
-  import HelloWorld from './components/HelloWorld.vue'
+  import Add from './components/Add.vue'
+  import List from './components/List.vue'
 
   export default {
-    //2. 映射组件标签
+    data(){
+      return {
+        comments:[//数据在哪个组件，更新数据的行为(方法)就应该定义在哪个组件
+          {name:"Bob",content:"Vue 不错"},
+          {name:"Tom",content:"Vue 很好"},
+          {name:"Cat",content:"Vue 简单"}
+        ]
+      }
+    },
     components:{
-      HelloWorld
+      Add,
+      List
+    },
+    methods:{
+      addComment(comment){
+        this.comments.unshift(comment);//添加comment在数组第一位
+      }
     }
   }
 </script>
 
-<style>
+<style scoped>
 
 </style>
