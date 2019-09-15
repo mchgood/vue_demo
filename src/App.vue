@@ -14,7 +14,7 @@
       <Add :addComment="addComment"/>
 
       <!--   组件间传递参数，给list组件传递 comments 参数  -->
-      <List :comments="comments"/>
+      <List :comments="comments" :delComment="delComment"/>
     </div>
   </div>
 </template>
@@ -40,6 +40,10 @@
     methods:{
       addComment(comment){
         this.comments.unshift(comment);//添加comment在数组第一位
+      },
+      delComment(index){
+        debugger;
+        this.comments.splice(index,1);//根据下标删除
       }
     }
   }

@@ -1,10 +1,10 @@
 <template>
   <div class="col-md-8">
     <h3 class="reply">评论回复：</h3>
-    <h2 style='display: none'>暂无评论，点击左侧添加评论！！！</h2>
+    <h2 v-show="comments.length==0">暂无评论，点击左侧添加评论！！！</h2>
     <ul class="list-group">
       <!--   循环Item标签，给Item组件传递参数comment   -->
-      <Item v-for="(comment,index) in comments" :key="index" :comment="comment"/>
+      <Item v-for="(comment,index) in comments" :key="index" :comment="comment" :delComment="delComment" :index="index"/>
     </ul>
   </div>
 </template>
@@ -14,7 +14,7 @@
 
   export default {
     components:{Item},
-    props:['comments']//接收组件间传递的参数
+    props:['comments','delComment']//接收组件间传递的参数
   }
 </script>
 
