@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './base.css'
+
 
 /**
  * 1. 引入组件
