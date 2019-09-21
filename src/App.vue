@@ -1,19 +1,36 @@
 <template>
-  <div class="container">
-    <Search/>
-    <UserMain/>
+  <div>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="page-header"><h2>Router Test</h2></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <!--生成路由链接-->
+          <router-link to="/about" class="list-group-item">About</router-link>
+          <router-link to="/home" class="list-group-item">Home</router-link>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-6">
+      <div class="panel">
+        <div class="panel-body">
+          <!--显示当前组件-->
+            <router-view></router-view>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import Search from './components/Search'
-  import Main from  './components/Main'
 
   export default {
-    components:{
-      Search,
-      UserMain:Main //因为Main标签是html的关键字，所以需要别名
-    }
+
   }
 </script>
 
