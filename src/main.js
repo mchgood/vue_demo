@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import './base.css'
+import  VueResource from 'vue-resource'
 
+//声明使用插件
+Vue.use(VueResource)//内部会给vm对象和组件添加一个属性 :$http
 
-/**
- * 1. 引入组件
- * 2. 映射组件标签
- * 3. 使用组件标签
- */
 new Vue({
   el:"#app",
   components:{
